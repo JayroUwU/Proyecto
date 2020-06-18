@@ -1,7 +1,9 @@
-%Este sera el "menu" por el cual podremos manipular el objeto y mostrarlo%
 clear all;
 close all;
 clc;
+
+anc=5;
+alt=5;
 
 %creaci[on de objetos
 menu=figure(1);
@@ -28,411 +30,617 @@ btnrestauar=uicontrol(menu,'position',[152,750,100,30],'style','pushbutton','str
 btnrotn=uicontrol(menu,'position',[50,550,30,30],'style','pushbutton','string','-','callback','[a,b,c,d,e,f,a1,b1,c1,d1,e1,f1,pico,pc]=g3411trasn(a,b,c,d,e,f,a1,b1,c1,d1,e1,f1,pico,pc,trasn,animacion)');
 etirotn=uicontrol(menu,'position',[82,550,100,30],'style','text','string','Rotacion');
 btnrotp=uicontrol(menu,'position',[184,550,30,30],'style','pushbutton','string','+','callback','[a,b,c,d,e,f,a1,b1,c1,d1,e1,f1,pico,pc]=g3411trasp(a,b,c,d,e,f,a1,b1,c1,d1,e1,f1,pico,pc,trasp,animacion)');
-
-
 set(animacion,'position',[322,50,1400,900],'numbertitle','off','name','Efectos matriciales','color','black');
 
-%Coordenas originales osea respecto al origen%
-c = [-100.35373;4;7.44652];
-d = [-100.2832;4;7.44151];
-f = [-100.1265;4;7.44151];
-j = [-99.79448;4;7.43531];
-k = [-99.75104;4;7.43376];
-l = [-99.74483;4;7.4834];
-m = [-99.73087;4;7.52685];
-n = [-99.70294;4;7.55943];
-o = [-99.67191;4;7.5796];
-p = [-99.63157;4;7.58891];
-q = [-99.59134;4;7.5796];
-r = [-99.54935;4;7.55477];
-s = [-99.52918;4;7.53771];
-t = [-99.51521;4;7.50202];
-u = [-99.50125;4;7.47254];
-v = [-99.49;4;7.44151];
-w = [-99.4454;4;7.44151];
-z0 = [-99.43264;4;7.4572];
-a1 = [-99.38782;4;7.45651];
-d1 = [-99.39471;4;7.51163];
-e1 = [-99.43333;4;7.50616];
-f1 = [-99.44505;4;7.53857];
-g1 = [-99.45608;4;7.56891];
-h1 = [-99.46048;4;7.61434];
-k1 = [-99.50021;4;7.652];
-l1 = [-99.54055;4;7.67682];
-m1 = [-99.57779;4;7.69648];
-o1 = [-99.67502;4;7.7182];
-p1 = [-99.7257;4;7.72544];
-r1 = [-99.82603;4;7.73371];
-s1 = [-99.84672;4;7.75026];
-w1 = [-99.90981;4;7.86093];
-z1 = [-99.92429;4;7.888369];
-a2 = [-99.95532;4;7.89714];
-b2 = [-100.00083;4;7.90231];
-e2 = [-100.13943;4;7.91368];
-g2 = [-100.24286;4;7.91368];
-h2 = [-100.29665;4;7.90748];
-i2 = [-100.34837;4;7.90024];
-j2 = [-100.40319;4;7.88576];
-k2 = [-100.44973;4;7.86921];
-l2 = [-100.48179;4;7.85369];
-m2 = [-100.5935;4;7.76578];
-n2 = [-100.61729;4;7.74612];
-p2 = [-100.6566;4;7.70165];
-s2 = [-100.70107;4;7.652];
-t2 = [-100.74451;4;7.64579];
-v2 = [-100.71518;4;7.61378];
-b3 = [-100.74969;4;7.53202];
-c3 = [-100.78899;4;7.53822];
-d3 = [-100.82209;4;7.53202];
-f3 = [-100.82312;4;7.48754];
-h3 = [-100.77554;4;7.48237];
-i3 = [-100.77348;4;7.46479];
-l3 = [-100.67211;4;7.46065];
-m3 = [-100.63694;4;7.45961];
-n3 = [-100.60695;4;7.45961];
-o3 = [-100.5935;4;7.5165];
-p3 = [-100.57799;4;7.5527];
-q3 = [-100.55006;4;7.57856];
-r3 = [-100.51903;4;7.60028];
-s3 = [-100.49214;4;7.60442];
-t3 = [-100.45076;4;7.60442];
-u3 = [-100.39905;4;7.59097];
-v3 = [-100.38836;4;7.57029];
-w3 = [-100.37836;4;7.54753];
-z3 = [-100.36285;4;7.51547];
-a4 = [-100.35871;4;7.48237];
-
-ESQx = [c(1),d(1),f(1),j(1),k(1),l(1),m(1),n(1),o(1),p(1),q(1),r(1),s(1),t(1),u(1),v(1),w(1),z0(1),a1(1),d1(1),e1(1),f1(1),g1(1),h1(1),k1(1),l1(1),m1(1),o1(1),p1(1),r1(1),s1(1),w1(1),z1(1),a2(1),b2(1),e2(1),g2(1),h2(1),i2(1),j2(1),k2(1),l2(1),m2(1),n2(1),p2(1),s2(1),t2(1),v2(1),b3(1),c3(1),d3(1),f3(1),h3(1),i3(1),l3(1),m3(1),n3(1),o3(1),p3(1),q3(1),r3(1),s3(1),t3(1),u3(1),v3(1),w3(1),z3(1),a4(1)];
-ESQy = [c(2),d(2),f(2),j(2),k(2),l(2),m(2),n(2),o(2),p(2),q(2),r(2),s(2),t(2),u(2),v(2),w(2),z0(2),a1(2),d1(2),e1(2),f1(2),g1(2),h1(2),k1(2),l1(2),m1(2),o1(2),p1(2),r1(2),s1(2),w1(2),z1(2),a2(2),b2(2),e2(2),g2(2),h2(2),i2(2),j2(2),k2(2),l2(2),m2(2),n2(2),p2(2),s2(2),t2(2),v2(2),b3(2),c3(2),d3(2),f3(2),h3(2),i3(2),l3(2),m3(2),n3(2),o3(2),p3(2),q3(2),r3(2),s3(2),t3(2),u3(2),v3(2),w3(2),z3(2),a4(2)];
-ESQz = [c(3),d(3),f(3),j(3),k(3),l(3),m(3),n(3),o(3),p(3),q(3),r(3),s(3),t(3),u(3),v(3),w(3),z0(3),a1(3),d1(3),e1(3),f1(3),g1(3),h1(3),k1(3),l1(3),m1(3),o1(3),p1(3),r1(3),s1(3),w1(3),z1(3),a2(3),b2(3),e2(3),g2(3),h2(3),i2(3),j2(3),k2(3),l2(3),m2(3),n2(3),p2(3),s2(3),t2(3),v2(3),b3(3),c3(3),d3(3),f3(3),h3(3),i3(3),l3(3),m3(3),n3(3),o3(3),p3(3),q3(3),r3(3),s3(3),t3(3),u3(3),v3(3),w3(3),z3(3),a4(3)];
-patch(ESQx, ESQy, ESQz,'w')
-
-Basex = ESQx;
-Basey = ESQy;
-Basez = ESQz;
-patch(Basex, Basey+0.5, Basez,'w');
-
-la1x=[c(1),k(1),k(1),c(1)];
-la1y=[c(2),k(2),k(2)+0.5,c(2)+0.5];
-la1z=[c(3),k(3),k(3),c(3)];
-patch(la1x,la1y,la1z,'W')
-
-la2x=[k(1),l(1),l(1),k(1)];
-la2y=[k(2),l(2),l(2)+0.5,k(2)+0.5];
-la2z=[k(3),l(3),l(3),k(3)];
-patch(la2x,la2y,la2z,'W')
-
-la3x=[k(1),l(1),l(1),k(1)];
-la3y=[k(2),l(2),l(2)+0.5,k(2)+0.5];
-la3z=[k(3),l(3),l(3),k(3)];
-patch(la3x,la3y,la3z,'W')
-
-la4x=[l(1),m(1),m(1),l(1)];
-la4y=[l(2),m(2),m(2)+0.5,l(2)+0.5];
-la4z=[l(3),m(3),m(3),l(3)];
-patch(la4x,la4y,la4z,'W')
-
-la5x=[m(1),n(1),n(1),m(1)];
-la5y=[m(2),n(2),n(2)+0.5,m(2)+0.5];
-la5z=[m(3),n(3),n(3),m(3)];
-patch(la5x,la5y,la5z,'W')
-
-la6x=[n(1),o(1),o(1),n(1)];
-la6y=[n(2),o(2),o(2)+0.5,n(2)+0.5];
-la6z=[n(3),o(3),o(3),n(3)];
-patch(la6x,la6y,la6z,'W')
-
-la7x=[o(1),p(1),p(1),o(1)];
-la7y=[o(2),p(2),p(2)+0.5,o(2)+0.5];
-la7z=[o(3),p(3),p(3),o(3)];
-patch(la7x,la7y,la7z,'W')
-
-la8x=[q(1),p(1),p(1),q(1)];
-la8y=[q(2),p(2),p(2)+0.5,q(2)+0.5];
-la8z=[q(3),p(3),p(3),q(3)];
-patch(la8x,la8y,la8z,'W')
-
-la8x=[q(1),r(1),r(1),q(1)];
-la8y=[q(2),r(2),r(2)+0.5,q(2)+0.5];
-la8z=[q(3),r(3),r(3),q(3)];
-patch(la8x,la8y,la8z,'W')
-
-la9x=[s(1),r(1),r(1),s(1)];
-la9y=[s(2),r(2),r(2)+0.5,s(2)+0.5];
-la9z=[s(3),r(3),r(3),s(3)];
-patch(la9x,la9y,la9z,'W')
-
-la10x=[s(1),t(1),t(1),s(1)];
-la10y=[s(2),t(2),t(2)+0.5,s(2)+0.5];
-la10z=[s(3),t(3),t(3),s(3)];
-patch(la10x,la10y,la10z,'W')
-
-la11x=[u(1),t(1),t(1),u(1)];
-la11y=[u(2),t(2),t(2)+0.5,u(2)+0.5];
-la11z=[u(3),t(3),t(3),u(3)];
-patch(la11x,la11y,la11z,'W')
-
-la12x=[u(1),v(1),v(1),u(1)];
-la12y=[u(2),v(2),v(2)+0.5,u(2)+0.5];
-la12z=[u(3),v(3),v(3),u(3)];
-patch(la12x,la12y,la12z,'W')
-
-la13x=[w(1),v(1),v(1),w(1)];
-la13y=[w(2),v(2),v(2)+0.5,w(2)+0.5];
-la13z=[w(3),v(3),v(3),w(3)];
-patch(la13x,la13y,la13z,'W')
-
-la14x=[w(1),z0(1),z0(1),w(1)];
-la14y=[w(2),z0(2),z0(2)+0.5,w(2)+0.5];
-la14z=[w(3),z0(3),z0(3),w(3)];
-patch(la14x,la14y,la14z,'W')
-
-la15x=[a1(1),z0(1),z0(1),a1(1)];
-la15y=[a1(2),z0(2),z0(2)+0.5,a1(2)+0.5];
-la15z=[a1(3),z0(3),z0(3),a1(3)];
-patch(la15x,la15y,la15z,'W')
-
-la16x=[a1(1),d1(1),d1(1),a1(1)];
-la16y=[a1(2),d1(2),d1(2)+0.5,a1(2)+0.5];
-la16z=[a1(3),d1(3),d1(3),a1(3)];
-patch(la16x,la16y,la16z,'W')
-
-la17x=[e1(1),d1(1),d1(1),e1(1)];
-la17y=[e1(2),d1(2),d1(2)+0.5,e1(2)+0.5];
-la17z=[e1(3),d1(3),d1(3),e1(3)];
-patch(la17x,la17y,la17z,'W')
-
-la18x=[e1(1),f1(1),f1(1),e1(1)];
-la18y=[e1(2),f1(2),f1(2)+0.5,e1(2)+0.5];
-la18z=[e1(3),f1(3),f1(3),e1(3)];
-patch(la18x,la18y,la18z,'W')
-
-la19x=[g1(1),f1(1),f1(1),g1(1)];
-la19y=[g1(2),f1(2),f1(2)+0.5,g1(2)+0.5];
-la19z=[g1(3),f1(3),f1(3),g1(3)];
-patch(la19x,la19y,la19z,'W')
-
-la20x=[g1(1),h1(1),h1(1),g1(1)];
-la20y=[g1(2),h1(2),h1(2)+0.5,g1(2)+0.5];
-la20z=[g1(3),h1(3),h1(3),g1(3)];
-patch(la20x,la20y,la20z,'W')
-
-la21x=[k1(1),h1(1),h1(1),k1(1)];
-la21y=[k1(2),h1(2),h1(2)+0.5,k1(2)+0.5];
-la21z=[k1(3),h1(3),h1(3),k1(3)];
-patch(la21x,la21y,la21z,'W')
-
-la22x=[k1(1),l1(1),l1(1),k1(1)];
-la22y=[k1(2),l1(2),l1(2)+0.5,k1(2)+0.5];
-la22z=[k1(3),l1(3),l1(3),k1(3)];
-patch(la22x,la22y,la22z,'W')
-
-la23x=[m1(1),l1(1),l1(1),m1(1)];
-la23y=[m1(2),l1(2),l1(2)+0.5,m1(2)+0.5];
-la23z=[m1(3),l1(3),l1(3),m1(3)];
-patch(la23x,la23y,la23z,'W')
-
-la24x=[m1(1),o1(1),o1(1),m1(1)];
-la24y=[m1(2),o1(2),o1(2)+0.5,m1(2)+0.5];
-la24z=[m1(3),o1(3),o1(3),m1(3)];
-patch(la24x,la24y,la24z,'W')
-
-la25x=[p1(1),o1(1),o1(1),p1(1)];
-la25y=[p1(2),o1(2),o1(2)+0.5,p1(2)+0.5];
-la25z=[p1(3),o1(3),o1(3),p1(3)];
-patch(la25x,la25y,la25z,'W')
-
-la26x=[p1(1),r1(1),r1(1),p1(1)];
-la26y=[p1(2),r1(2),r1(2)+0.5,p1(2)+0.5];
-la26z=[p1(3),r1(3),r1(3),p1(3)];
-patch(la26x,la26y,la26z,'W')
-
-
-la27x=[s1(1),r1(1),r1(1),s1(1)];
-la27y=[s1(2),r1(2),r1(2)+0.5,s1(2)+0.5];
-la27z=[s1(3),r1(3),r1(3),s1(3)];
-patch(la27x,la27y,la27z,'W')
-
-la28x=[s1(1),w1(1),w1(1),s1(1)];
-la28y=[s1(2),w1(2),w1(2)+0.5,s1(2)+0.5];
-la28z=[s1(3),w1(3),w1(3),s1(3)];
-patch(la28x,la28y,la28z,'W')
-
-la29x=[z1(1),w1(1),w1(1),z1(1)];
-la29y=[z1(2),w1(2),w1(2)+0.5,z1(2)+0.5];
-la29z=[z1(3),w1(3),w1(3),z1(3)];
-patch(la29x,la29y,la29z,'W')
-
-la30x=[z1(1),a2(1),a2(1),z1(1)];
-la30y=[z1(2),a2(2),a2(2)+0.5,z1(2)+0.5];
-la30z=[z1(3),a2(3),a2(3),z1(3)];
-patch(la30x,la30y,la30z,'W')
-
-la32x=[b2(1),a2(1),a2(1),b2(1)];
-la32y=[b2(2),a2(2),a2(2)+0.5,b2(2)+0.5];
-la32z=[b2(3),a2(3),a2(3),b2(3)];
-patch(la32x,la32y,la32z,'W')
-
-la33x=[b2(1),e2(1),e2(1),b2(1)];
-la33y=[b2(2),e2(2),e2(2)+0.5,b2(2)+0.5];
-la33z=[b2(3),e2(3),e2(3),b2(3)];
-patch(la33x,la33y,la33z,'W')
-
-la34x=[g2(1),e2(1),e2(1),g2(1)];
-la34y=[g2(2),e2(2),e2(2)+0.5,g2(2)+0.5];
-la34z=[g2(3),e2(3),e2(3),g2(3)];
-patch(la34x,la34y,la34z,'W')
-
-la35x=[g2(1),h2(1),h2(1),g2(1)];
-la35y=[g2(2),h2(2),h2(2)+0.5,g2(2)+0.5];
-la35z=[g2(3),h2(3),h2(3),g2(3)];
-patch(la35x,la35y,la35z,'W')
-
-la36x=[i2(1),h2(1),h2(1),i2(1)];
-la36y=[i2(2),h2(2),h2(2)+0.5,i2(2)+0.5];
-la36z=[i2(3),h2(3),h2(3),i2(3)];
-patch(la36x,la36y,la36z,'W')
-
-la37x=[i2(1),j2(1),j2(1),i2(1)];
-la37y=[i2(2),j2(2),j2(2)+0.5,i2(2)+0.5];
-la37z=[i2(3),j2(3),j2(3),i2(3)];
-patch(la37x,la37y,la37z,'W')
-
-la38x=[k2(1),j2(1),j2(1),k2(1)];
-la38y=[k2(2),j2(2),j2(2)+0.5,k2(2)+0.5];
-la38z=[k2(3),j2(3),j2(3),k2(3)];
-patch(la38x,la38y,la38z,'W')
-
-la39x=[k2(1),l2(1),l2(1),k2(1)];
-la39y=[k2(2),l2(2),l2(2)+0.5,k2(2)+0.5];
-la39z=[k2(3),l2(3),l2(3),k2(3)];
-patch(la39x,la39y,la39z,'W')
-
-la40x=[m2(1),l2(1),l2(1),m2(1)];
-la40y=[m2(2),l2(2),l2(2)+0.5,m2(2)+0.5];
-la40z=[m2(3),l2(3),l2(3),m2(3)];
-patch(la40x,la40y,la40z,'W')
-
-la41x=[m2(1),n2(1),n2(1),m2(1)];
-la41y=[m2(2),n2(2),n2(2)+0.5,m2(2)+0.5];
-la41z=[m2(3),n2(3),n2(3),m2(3)];
-patch(la41x,la41y,la41z,'W')
-
-la42x=[p2(1),n2(1),n2(1),p2(1)];
-la42y=[p2(2),n2(2),n2(2)+0.5,p2(2)+0.5];
-la42z=[p2(3),n2(3),n2(3),p2(3)];
-patch(la42x,la42y,la42z,'W')
-
-la43x=[p2(1),s2(1),s2(1),p2(1)];
-la43y=[p2(2),s2(2),s2(2)+0.5,p2(2)+0.5];
-la43z=[p2(3),s2(3),s2(3),p2(3)];
-patch(la43x,la43y,la43z,'W')
-
-la44x=[t2(1),s2(1),s2(1),t2(1)];
-la44y=[t2(2),s2(2),s2(2)+0.5,t2(2)+0.5];
-la44z=[t2(3),s2(3),s2(3),t2(3)];
-patch(la44x,la44y,la44z,'W')
-
-la45x=[t2(1),v2(1),v2(1),t2(1)];
-la45y=[t2(2),v2(2),v2(2)+0.5,t2(2)+0.5];
-la45z=[t2(3),v2(3),v2(3),t2(3)];
-patch(la45x,la45y,la45z,'W')
-
-la46x=[b3(1),v2(1),v2(1),b3(1)];
-la46y=[b3(2),v2(2),v2(2)+0.5,b3(2)+0.5];
-la46z=[b3(3),v2(3),v2(3),b3(3)];
-patch(la46x,la46y,la46z,'W')
-
-la47x=[b3(1),c3(1),c3(1),b3(1)];
-la47y=[b3(2),c3(2),c3(2)+0.5,b3(2)+0.5];
-la47z=[b3(3),c3(3),c3(3),b3(3)];
-patch(la47x,la47y,la47z,'W')
-
-la48x=[d3(1),c3(1),c3(1),d3(1)];
-la48y=[d3(2),c3(2),c3(2)+0.5,d3(2)+0.5];
-la48z=[d3(3),c3(3),c3(3),d3(3)];
-patch(la48x,la48y,la48z,'W')
-
-la49x=[d3(1),f3(1),f3(1),d3(1)];
-la49y=[d3(2),f3(2),f3(2)+0.5,d3(2)+0.5];
-la49z=[d3(3),f3(3),f3(3),d3(3)];
-patch(la49x,la49y,la49z,'W')
-
-la50x=[h3(1),f3(1),f3(1),h3(1)];
-la50y=[h3(2),f3(2),f3(2)+0.5,h3(2)+0.5];
-la50z=[h3(3),f3(3),f3(3),h3(3)];
-patch(la50x,la50y,la50z,'W')
-
-la51x=[h3(1),i3(1),i3(1),h3(1)];
-la51y=[h3(2),i3(2),i3(2)+0.5,h3(2)+0.5];
-la51z=[h3(3),i3(3),i3(3),h3(3)];
-patch(la51x,la51y,la51z,'W')
-
-la52x=[n3(1),i3(1),i3(1),n3(1)];
-la52y=[n3(2),i3(2),i3(2)+0.5,n3(2)+0.5];
-la52z=[n3(3),i3(3),i3(3),n3(3)];
-patch(la52x,la52y,la52z,'W')
-
-la53x=[n3(1),o3(1),o3(1),n3(1)];
-la53y=[n3(2),o3(2),o3(2)+0.5,n3(2)+0.5];
-la53z=[n3(3),o3(3),o3(3),n3(3)];
-patch(la53x,la53y,la53z,'W')
-
-la54x=[p3(1),o3(1),o3(1),p3(1)];
-la54y=[p3(2),o3(2),o3(2)+0.5,p3(2)+0.5];
-la54z=[p3(3),o3(3),o3(3),p3(3)];
-patch(la54x,la54y,la54z,'W')
-
-la55x=[p3(1),q3(1),q3(1),p3(1)];
-la55y=[p3(2),q3(2),q3(2)+0.5,p3(2)+0.5];
-la55z=[p3(3),q3(3),q3(3),p3(3)];
-patch(la55x,la55y,la55z,'W')
-
-la56x=[r3(1),q3(1),q3(1),r3(1)];
-la56y=[r3(2),q3(2),q3(2)+0.5,r3(2)+0.5];
-la56z=[r3(3),q3(3),q3(3),r3(3)];
-patch(la56x,la56y,la56z,'W')
-
-la57x=[r3(1),s3(1),s3(1),r3(1)];
-la57y=[r3(2),s3(2),s3(2)+0.5,r3(2)+0.5];
-la57z=[r3(3),s3(3),s3(3),r3(3)];
-patch(la57x,la57y,la57z,'W')
-
-la58x=[t3(1),s3(1),s3(1),t3(1)];
-la58y=[t3(2),s3(2),s3(2)+0.5,t3(2)+0.5];
-la58z=[t3(3),s3(3),s3(3),t3(3)];
-patch(la58x,la58y,la58z,'W')
-
-la59x=[t3(1),u3(1),u3(1),t3(1)];
-la59y=[t3(2),u3(2),u3(2)+0.5,t3(2)+0.5];
-la59z=[t3(3),u3(3),u3(3),t3(3)];
-patch(la59x,la59y,la59z,'W')
-
-la60x=[v3(1),u3(1),u3(1),v3(1)];
-la60y=[v3(2),u3(2),u3(2)+0.5,v3(2)+0.5];
-la60z=[v3(3),u3(3),u3(3),v3(3)];
-patch(la60x,la60y,la60z,'W')
-
-la61x=[v3(1),w3(1),w3(1),v3(1)];
-la61y=[v3(2),w3(2),w3(2)+0.5,v3(2)+0.5];
-la61z=[v3(3),w3(3),w3(3),v3(3)];
-patch(la61x,la61y,la61z,'W')
-
-la62x=[z3(1),w3(1),w3(1),z3(1)];
-la62y=[z3(2),w3(2),w3(2)+0.5,z3(2)+0.5];
-la62z=[z3(3),w3(3),w3(3),z3(3)];
-patch(la62x,la62y,la62z,'W')
-
-la63x=[z3(1),a4(1),a4(1),z3(1)];
-la63y=[z3(2),a4(2),a4(2)+0.5,z3(2)+0.5];
-la63z=[z3(3),a4(3),a4(3),z3(3)];
-patch(la63x,la63y,la63z,'W')
-
-la64x=[c(1),a4(1),a4(1),c(1)];
-la64y=[c(2),a4(2),a4(2)+0.5,c(2)+0.5];
-la64z=[c(3),a4(3),a4(3),c(3)];
-patch(la64x,la64y,la64z,'W')
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%AUTO%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+a = [-3.72;4;0.92];
+b = [1.38;4;0.9];
+c = [1.7;4;1.74];
+d = [2.1;4;2.18];
+e = [2.66;4;2.38];
+f = [3.16;4;2.22];
+g = [3.72;4;1.7];
+h = [3.94;4;1.38];
+i = [4.24;4;1.22];
+j = [4.58;4;1.12];
+k = [5.38;4;0.98];
+l = [5.12;4;1.7];
+m = [4.66;4;2.6];
+n = [4.28;4;3.12];
+o = [3.96;4;3.28];
+p = [3.68;4;3.7];
+q = [3.36;4;3.52];
+r = [2.5;4;4.18];
+s = [2.54;4;4.5];
+t = [2.02;4;4.72];
+u = [0.74;4;5.02];
+v = [-0.62;4;4.98];
+w = [-1.7;4;4.88];
+x = [-2.4;4;4.68];
+y = [-3;4;3.52];
+z = [-3.54;4;3.5];
+a1 = [-4.34;4;3.46];
+b1 = [-5.08;4;3.3];
+c1 = [-5.66;4;3.14];
+d1 = [-6.2;4;2.8];
+e1 = [-6.7;4;2.24];
+f1 = [-6.92;4;1.72];
+g1 = [-6.94;4;1.28];
+h1 = [-6.9;4;1.04];
+i1 = [-6.68;4;1];
+j1 = [-6.26;4;1.48];
+k1 = [-5.86;4;2.04];
+l1 = [-5.32;4;2.36];
+m1 = [-4.78;4;2.34];
+n1 = [-4.38;4;2.08];
+o1 = [-4.16;4;1.86];
+p1 = [-4;4;1.52];
+q1 = [-3.9;4;1.04];
+
+ESQx = [a(1),b(1),c(1),d(1),e(1),f(1),g(1),h(1),i(1),j(1),k(1),l(1),m(1),n(1),o(1),p(1),q(1),r(1),s(1),t(1),u(1),v(1),w(1),x(1),y(1),z(1),a1(1),b1(1),c1(1),d1(1),e1(1),f1(1),g1(1),h1(1),i1(1),j1(1),k1(1),l1(1),m1(1),n1(1),o1(1),p1(1),q1(1)];
+ESQy = [a(2),b(2),c(2),d(2),e(2),f(2),g(2),h(2),i(2),j(2),k(2),l(2),m(2),n(2),o(2),p(2),q(2),r(2),s(2),t(2),u(2),v(2),w(2),x(2),y(2),z(2),a1(2),b1(2),c1(2),d1(2),e1(2),f1(2),g1(2),h1(2),i1(2),j1(2),k1(2),l1(2),m1(2),n1(2),o1(2),p1(2),q1(2)];
+ESQz = [a(3),b(3),c(3),d(3),e(3),f(3),g(3),h(3),i(3),j(3),k(3),l(3),m(3),n(3),o(3),p(3),q(3),r(3),s(3),t(3),u(3),v(3),w(3),x(3),y(3),z(3),a1(3),b1(3),c1(3),d1(3),e1(3),f1(3),g1(3),h1(3),i1(3),j1(3),k1(3),l1(3),m1(3),n1(3),o1(3),p1(3),q1(3)];
+patch(ESQx, ESQy, ESQz,[108/256 160/256 220/256])
+
+Basex = [a(1),b(1),c(1),d(1),e(1),f(1),g(1),h(1),i(1),j(1),k(1),l(1),m(1),n(1),o(1),p(1),q(1),r(1),s(1),t(1),u(1),v(1),w(1),x(1),y(1),z(1),a1(1),b1(1),c1(1),d1(1),e1(1),f1(1),g1(1),h1(1),i1(1),j1(1),k1(1),l1(1),m1(1),n1(1),o1(1),p1(1),q1(1)];
+Basey = [a(2),b(2),c(2),d(2),e(2),f(2),g(2),h(2),i(2),j(2),k(2),l(2),m(2),n(2),o(2),p(2),q(2),r(2),s(2),t(2),u(2),v(2),w(2),x(2),y(2),z(2),a1(2),b1(2),c1(2),d1(2),e1(2),f1(2),g1(2),h1(2),i1(2),j1(2),k1(2),l1(2),m1(2),n1(2),o1(2),p1(2),q1(2)];
+Basez = [a(3),b(3),c(3),d(3),e(3),f(3),g(3),h(3),i(3),j(3),k(3),l(3),m(3),n(3),o(3),p(3),q(3),r(3),s(3),t(3),u(3),v(3),w(3),x(3),y(3),z(3),a1(3),b1(3),c1(3),d1(3),e1(3),f1(3),g1(3),h1(3),i1(3),j1(3),k1(3),l1(3),m1(3),n1(3),o1(3),p1(3),q1(3)];
+patch(Basex, Basey+anc, Basez,[108/256 160/256 220/256]);
+
+la1x=[a(1),b(1),b(1),a(1)];
+la1y=[a(2),b(2),b(2)+alt,a(2)+alt];
+la1z=[a(3),b(3),b(3),a(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[c(1),b(1),b(1),c(1)];
+la1y=[c(2),b(2),b(2)+alt,c(2)+alt];
+la1z=[c(3),b(3),b(3),c(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[c(1),d(1),d(1),c(1)];
+la1y=[c(2),d(2),d(2)+alt,c(2)+alt];
+la1z=[c(3),d(3),d(3),c(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[e(1),d(1),d(1),e(1)];
+la1y=[e(2),d(2),d(2)+alt,e(2)+alt];
+la1z=[e(3),d(3),d(3),e(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[e(1),f(1),f(1),e(1)];
+la1y=[e(2),f(2),f(2)+alt,e(2)+alt];
+la1z=[e(3),f(3),f(3),e(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[g(1),f(1),f(1),g(1)];
+la1y=[g(2),f(2),f(2)+alt,g(2)+alt];
+la1z=[g(3),f(3),f(3),g(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[g(1),h(1),h(1),g(1)];
+la1y=[g(2),h(2),h(2)+alt,g(2)+alt];
+la1z=[g(3),h(3),h(3),g(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[i(1),h(1),h(1),i(1)];
+la1y=[i(2),h(2),h(2)+alt,i(2)+alt];
+la1z=[i(3),h(3),h(3),i(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[i(1),j(1),j(1),i(1)];
+la1y=[i(2),j(2),j(2)+alt,i(2)+alt];
+la1z=[i(3),j(3),j(3),i(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[k(1),j(1),j(1),k(1)];
+la1y=[k(2),j(2),j(2)+alt,k(2)+alt];
+la1z=[k(3),j(3),j(3),k(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[k(1),l(1),l(1),k(1)];
+la1y=[k(2),l(2),l(2)+alt,k(2)+alt];
+la1z=[k(3),l(3),l(3),k(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[m(1),l(1),l(1),m(1)];
+la1y=[m(2),l(2),l(2)+alt,m(2)+alt];
+la1z=[m(3),l(3),l(3),m(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[m(1),n(1),n(1),m(1)];
+la1y=[m(2),n(2),n(2)+alt,m(2)+alt];
+la1z=[m(3),n(3),n(3),m(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[o(1),n(1),n(1),o(1)];
+la1y=[o(2),n(2),n(2)+alt,o(2)+alt];
+la1z=[o(3),n(3),n(3),o(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[o(1),p(1),p(1),o(1)];
+la1y=[o(2),p(2),p(2)+alt,o(2)+alt];
+la1z=[o(3),p(3),p(3),o(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[q(1),p(1),p(1),q(1)];
+la1y=[q(2),p(2),p(2)+alt,q(2)+alt];
+la1z=[q(3),p(3),p(3),q(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[q(1),r(1),r(1),q(1)];
+la1y=[q(2),r(2),r(2)+alt,q(2)+alt];
+la1z=[q(3),r(3),r(3),q(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[s(1),r(1),r(1),s(1)];
+la1y=[s(2),r(2),r(2)+alt,s(2)+alt];
+la1z=[s(3),r(3),r(3),s(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[s(1),t(1),t(1),s(1)];
+la1y=[s(2),t(2),t(2)+alt,s(2)+alt];
+la1z=[s(3),t(3),t(3),s(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[u(1),t(1),t(1),u(1)];
+la1y=[u(2),t(2),t(2)+alt,u(2)+alt];
+la1z=[u(3),t(3),t(3),u(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[u(1),v(1),v(1),u(1)];
+la1y=[u(2),v(2),v(2)+alt,u(2)+alt];
+la1z=[u(3),v(3),v(3),u(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[w(1),v(1),v(1),w(1)];
+la1y=[w(2),v(2),v(2)+alt,w(2)+alt];
+la1z=[w(3),v(3),v(3),w(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[w(1),x(1),x(1),w(1)];
+la1y=[w(2),x(2),x(2)+alt,w(2)+alt];
+la1z=[w(3),x(3),x(3),w(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[y(1),x(1),x(1),y(1)];
+la1y=[y(2),x(2),x(2)+alt,y(2)+alt];
+la1z=[y(3),x(3),x(3),y(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[y(1),z(1),z(1),y(1)];
+la1y=[y(2),z(2),z(2)+alt,y(2)+alt];
+la1z=[y(3),z(3),z(3),y(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[a1(1),z(1),z(1),a1(1)];
+la1y=[a1(2),z(2),z(2)+alt,a1(2)+alt];
+la1z=[a1(3),z(3),z(3),a1(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[a1(1),b1(1),b1(1),a1(1)];
+la1y=[a1(2),b1(2),b1(2)+alt,a1(2)+alt];
+la1z=[a1(3),b1(3),b1(3),a1(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[c1(1),b1(1),b1(1),c1(1)];
+la1y=[c1(2),b1(2),b1(2)+alt,c1(2)+alt];
+la1z=[c1(3),b1(3),b1(3),c1(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[c1(1),d1(1),d1(1),c1(1)];
+la1y=[c1(2),d1(2),d1(2)+alt,c1(2)+alt];
+la1z=[c1(3),d1(3),d1(3),c1(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[e1(1),d1(1),d1(1),e1(1)];
+la1y=[e1(2),d1(2),d1(2)+alt,e1(2)+alt];
+la1z=[e1(3),d1(3),d1(3),e1(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[e1(1),f1(1),f1(1),e1(1)];
+la1y=[e1(2),f1(2),f1(2)+alt,e1(2)+alt];
+la1z=[e1(3),f1(3),f1(3),e1(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[g1(1),f1(1),f1(1),g1(1)];
+la1y=[g1(2),f1(2),f1(2)+alt,g1(2)+alt];
+la1z=[g1(3),f1(3),f1(3),g1(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[g1(1),h1(1),h1(1),g1(1)];
+la1y=[g1(2),h1(2),h1(2)+alt,g1(2)+alt];
+la1z=[g1(3),h1(3),h1(3),g1(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[i1(1),h1(1),h1(1),i1(1)];
+la1y=[i1(2),h1(2),h1(2)+alt,i1(2)+alt];
+la1z=[i1(3),h1(3),h1(3),i1(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[i1(1),j1(1),j1(1),i1(1)];
+la1y=[i1(2),j1(2),j1(2)+alt,i1(2)+alt];
+la1z=[i1(3),j1(3),j1(3),i1(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[k1(1),j1(1),j1(1),k1(1)];
+la1y=[k1(2),j1(2),j1(2)+alt,k1(2)+alt];
+la1z=[k1(3),j1(3),j1(3),k1(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[k1(1),l1(1),l1(1),k1(1)];
+la1y=[k1(2),l1(2),l1(2)+alt,k1(2)+alt];
+la1z=[k1(3),l1(3),l1(3),k1(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[m1(1),l1(1),l1(1),m1(1)];
+la1y=[m1(2),l1(2),l1(2)+alt,m1(2)+alt];
+la1z=[m1(3),l1(3),l1(3),m1(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[m1(1),n1(1),n1(1),m1(1)];
+la1y=[m1(2),n1(2),n1(2)+alt,m1(2)+alt];
+la1z=[m1(3),n1(3),n1(3),m1(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[o1(1),n1(1),n1(1),o1(1)];
+la1y=[o1(2),n1(2),n1(2)+alt,o1(2)+alt];
+la1z=[o1(3),n1(3),n1(3),o1(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[o1(1),p1(1),p1(1),o1(1)];
+la1y=[o1(2),p1(2),p1(2)+alt,o1(2)+alt];
+la1z=[o1(3),p1(3),p1(3),o1(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[q1(1),p1(1),p1(1),q1(1)];
+la1y=[q1(2),p1(2),p1(2)+alt,q1(2)+alt];
+la1z=[q1(3),p1(3),p1(3),q1(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+la1x=[q1(1),a(1),a(1),q1(1)];
+la1y=[q1(2),a(2),a(2)+alt,q1(2)+alt];
+la1z=[q1(3),a(3),a(3),q1(3)];
+patch(la1x,la1y,la1z,[108/256 160/256 220/256])
+
+Va=[-0.7;4;3.25];
+Vb=[-0.4;4;3.29];
+Vc=[-0.26;4;3.41];
+Vd=[-0.26;4;4.15];
+Ve=[-0.26;4;4.29];
+Vf=[-0.36;4;4.41];
+Vg=[-1.9;4;4.31];
+Vh=[-2.16;4;3.31];
+
+VentX=[Va(1),Vb(1),Vc(1),Vd(1),Ve(1),Vf(1),Vg(1),Vh(1)];
+VentY=[Va(2),Vb(2),Vc(2),Vd(2),Ve(2),Vf(2),Vg(2),Vh(2)];
+VentZ=[Va(3),Vb(3),Vc(3),Vd(3),Ve(3),Vf(3),Vg(3),Vh(3)];
+patch(VentX,VentY,VentZ,[256/256 256/256 256/256]);
+
+VentX1=[Va(1),Vb(1),Vc(1),Vd(1),Ve(1),Vf(1),Vg(1),Vh(1)];
+VentY1=[Va(2),Vb(2),Vc(2),Vd(2),Ve(2),Vf(2),Vg(2),Vh(2)];
+VentZ1=[Va(3),Vb(3),Vc(3),Vd(3),Ve(3),Vf(3),Vg(3),Vh(3)];
+patch(VentX1,VentY1+anc+.1,VentZ1,[255/256 255/256 255/256]);
+
+Vi=[0.26;4;4.27];
+Vj=[0.24;4;3.45];
+Vk=[0.4;4;3.31];
+Vl=[2.24;4;3.29];
+Vm=[2.48;4;3.47];
+Vn=[2.4;4;3.75];
+Vo=[1.86;4;4.15];
+Vp=[1.02;4;4.37];
+Vq=[0.42;4;4.43];
+
+VentX2=[Vi(1),Vj(1),Vk(1),Vl(1),Vm(1),Vn(1),Vo(1),Vp(1),Vq(1)];
+VentY2=[Vi(2),Vj(2),Vk(2),Vl(2),Vm(2),Vn(2),Vo(2),Vp(2),Vq(2)];
+VentZ2=[Vi(3),Vj(3),Vk(3),Vl(3),Vm(3),Vn(3),Vo(3),Vp(3),Vq(3)];
+patch(VentX2,VentY2,VentZ2,[256/256 256/256 256/256]);
+
+VentX3=[Vi(1),Vj(1),Vk(1),Vl(1),Vm(1),Vn(1),Vo(1),Vp(1),Vq(1)];
+VentY3=[Vi(2),Vj(2),Vk(2),Vl(2),Vm(2),Vn(2),Vo(2),Vp(2),Vq(2)];
+VentZ3=[Vi(3),Vj(3),Vk(3),Vl(3),Vm(3),Vn(3),Vo(3),Vp(3),Vq(3)];
+patch(VentX3,VentY3+anc+.1,VentZ3,[256/256 256/256 256/256]);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%LLANTAS%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%b = [1.38;4;0.9];
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%PLANCHAS BANQUETA%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+PlanchaA=[6;13;0];
+PlanchaB=[-50;13;0];
+PlanchaC=[-50;2;0];
+PlanchaD=[6;2;0];
+
+PlanchaX=[PlanchaA(1),PlanchaB(1),PlanchaC(1),PlanchaD(1)];
+PlanchaY=[PlanchaA(2),PlanchaB(2),PlanchaC(2),PlanchaD(2)];
+PlanchaZ=[PlanchaA(3),PlanchaB(3),PlanchaC(3),PlanchaD(3)];
+patch(PlanchaX,PlanchaY,PlanchaZ,[10/256 10/256 10/256]);
+
+PlanchaX1=[PlanchaA(1),PlanchaB(1),PlanchaC(1),PlanchaD(1)];
+PlanchaY1=[PlanchaA(2),PlanchaB(2),PlanchaC(2),PlanchaD(2)];
+PlanchaZ1=[PlanchaA(3),PlanchaB(3),PlanchaC(3),PlanchaD(3)];
+patch(PlanchaX1,PlanchaY1,PlanchaZ1+0.5,[10/256 10/256 10/256]);
+
+LP1x=[PlanchaA(1),PlanchaB(1),PlanchaB(1),PlanchaA(1)];
+LP1y=[PlanchaA(2),PlanchaB(2),PlanchaB(2),PlanchaA(2)];
+LP1z=[PlanchaA(3),PlanchaB(3),PlanchaB(3)+.5,PlanchaA(3)+.5];
+patch(LP1x,LP1y,LP1z,[10/256 10/256 10/256]);
+
+LP1x=[PlanchaB(1),PlanchaC(1),PlanchaC(1),PlanchaB(1)];
+LP1y=[PlanchaB(2),PlanchaC(2),PlanchaC(2),PlanchaB(2)];
+LP1z=[PlanchaB(3),PlanchaC(3),PlanchaC(3)+.5,PlanchaB(3)+.5];
+patch(LP1x,LP1y,LP1z,[10/256 10/256 10/256]);
+
+LP1x=[PlanchaC(1),PlanchaD(1),PlanchaD(1),PlanchaC(1)];
+LP1y=[PlanchaC(2),PlanchaD(2),PlanchaD(2),PlanchaC(2)];
+LP1z=[PlanchaC(3),PlanchaD(3),PlanchaD(3)+.5,PlanchaC(3)+.5];
+patch(LP1x,LP1y,LP1z,[10/256 10/256 10/256]);
+
+LP1x=[PlanchaD(1),PlanchaA(1),PlanchaA(1),PlanchaD(1)];
+LP1y=[PlanchaD(2),PlanchaA(2),PlanchaA(2),PlanchaD(2)];
+LP1z=[PlanchaD(3),PlanchaA(3),PlanchaA(3)+.5,PlanchaD(3)+.5];
+patch(LP1x,LP1y,LP1z,[10/256 10/256 10/256]);
+
+BanquetaA=[6;3;0.1];
+BanquetaB=[-50;3;0.1];
+BanquetaC=[-50;1;0.1];
+BanquetaD=[6;1;0.1];
+
+BanquetaX=[BanquetaA(1),BanquetaB(1),BanquetaC(1),BanquetaD(1)];
+BanquetaY=[BanquetaA(2),BanquetaB(2),BanquetaC(2),BanquetaD(2)];
+BanquetaZ=[BanquetaA(3),BanquetaB(3),BanquetaC(3),BanquetaD(3)];
+patch(BanquetaX,BanquetaY,BanquetaZ,[30/256 30/256 30/256]);
+
+BanquetaX1=[BanquetaA(1),BanquetaB(1),BanquetaC(1),BanquetaD(1)];
+BanquetaY1=[BanquetaA(2),BanquetaB(2),BanquetaC(2),BanquetaD(2)];
+BanquetaZ1=[BanquetaA(3),BanquetaB(3),BanquetaC(3),BanquetaD(3)];
+patch(BanquetaX1,BanquetaY1,BanquetaZ1+0.6,[30/256 30/256 30/256]);
+
+LB1x=[BanquetaA(1),BanquetaB(1),BanquetaB(1),BanquetaA(1)];
+LB1y=[BanquetaA(2),BanquetaB(2),BanquetaB(2),BanquetaA(2)];
+LB1z=[BanquetaA(3),BanquetaB(3),BanquetaB(3)+.6,BanquetaA(3)+.6];
+patch(LB1x,LB1y,LB1z,[40/256 40/256 40/256]);
+
+LB1x=[BanquetaB(1),BanquetaC(1),BanquetaC(1),BanquetaB(1)];
+LB1y=[BanquetaB(2),BanquetaC(2),BanquetaC(2),BanquetaB(2)];
+LB1z=[BanquetaB(3),BanquetaC(3),BanquetaC(3)+.6,BanquetaB(3)+.6];
+patch(LB1x,LB1y,LB1z,[40/256 40/256 40/256]);
+
+LB1x=[BanquetaC(1),BanquetaD(1),BanquetaD(1),BanquetaC(1)];
+LB1y=[BanquetaC(2),BanquetaD(2),BanquetaD(2),BanquetaC(2)];
+LB1z=[BanquetaC(3),BanquetaD(3),BanquetaD(3)+.6,BanquetaC(3)+.6];
+patch(LB1x,LB1y,LB1z,[40/256 40/256 40/256]);
+
+LB1x=[BanquetaD(1),BanquetaA(1),BanquetaA(1),BanquetaD(1)];
+LB1y=[BanquetaD(2),BanquetaA(2),BanquetaA(2),BanquetaD(2)];
+LB1z=[BanquetaD(3),BanquetaA(3),BanquetaA(3)+.6,BanquetaD(3)+.6];
+patch(LB1x,LB1y,LB1z,[40/256 40/256 40/256]);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%LINEAS%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+LineaA=[5;11;0.01];
+LineaB=[-5;11;0.1];
+LineaC=[-5;10;0.1];
+LineaD=[5;10;0.1];
+
+LineaX=[LineaA(1),LineaB(1),LineaC(1),LineaD(1)];
+LineaY=[LineaA(2),LineaB(2),LineaC(2),LineaD(2)];
+LineaZ=[LineaA(3),LineaB(3),LineaC(3),LineaD(3)];
+patch(LineaX,LineaY,LineaZ,'y');
+
+LineaX1=[LineaA(1),LineaB(1),LineaC(1),LineaD(1)];
+LineaY1=[LineaA(2),LineaB(2),LineaC(2),LineaD(2)];
+LineaZ1=[LineaA(3),LineaB(3),LineaC(3),LineaD(3)];
+patch(LineaX1,LineaY1,LineaZ1+0.5,'y');
+
+LP1x=[LineaA(1),LineaB(1),LineaB(1),LineaA(1)];
+LP1y=[LineaA(2),LineaB(2),LineaB(2),LineaA(2)];
+LP1z=[LineaA(3),LineaB(3),LineaB(3)+.5,LineaA(3)+.5];
+patch(LP1x,LP1y,LP1z,'y');
+
+LP1x=[LineaB(1),LineaC(1),LineaC(1),LineaB(1)];
+LP1y=[LineaB(2),LineaC(2),LineaC(2),LineaB(2)];
+LP1z=[LineaB(3),LineaC(3),LineaC(3)+.5,LineaB(3)+.5];
+patch(LP1x,LP1y,LP1z,'y');
+
+LP1x=[LineaC(1),LineaD(1),LineaD(1),LineaC(1)];
+LP1y=[LineaC(2),LineaD(2),LineaD(2),LineaC(2)];
+LP1z=[LineaC(3),LineaD(3),LineaD(3)+.5,LineaC(3)+.5];
+patch(LP1x,LP1y,LP1z,'y');
+
+LP1x=[LineaD(1),LineaA(1),LineaA(1),LineaD(1)];
+LP1y=[LineaD(2),LineaA(2),LineaA(2),LineaD(2)];
+LP1z=[LineaD(3),LineaA(3),LineaA(3)+.5,LineaD(3)+.5];
+patch(LP1x,LP1y,LP1z,'y');
+
+LineaA=[-20;11;0.01];
+LineaB=[-10;11;0.1];
+LineaC=[-10;10;0.1];
+LineaD=[-20;10;0.1];
+
+LineaX=[LineaA(1),LineaB(1),LineaC(1),LineaD(1)];
+LineaY=[LineaA(2),LineaB(2),LineaC(2),LineaD(2)];
+LineaZ=[LineaA(3),LineaB(3),LineaC(3),LineaD(3)];
+patch(LineaX,LineaY,LineaZ,'y');
+
+LineaX1=[LineaA(1),LineaB(1),LineaC(1),LineaD(1)];
+LineaY1=[LineaA(2),LineaB(2),LineaC(2),LineaD(2)];
+LineaZ1=[LineaA(3),LineaB(3),LineaC(3),LineaD(3)];
+patch(LineaX1,LineaY1,LineaZ1+0.5,'y');
+
+LP1x=[LineaA(1),LineaB(1),LineaB(1),LineaA(1)];
+LP1y=[LineaA(2),LineaB(2),LineaB(2),LineaA(2)];
+LP1z=[LineaA(3),LineaB(3),LineaB(3)+.5,LineaA(3)+.5];
+patch(LP1x,LP1y,LP1z,'y');
+
+LP1x=[LineaB(1),LineaC(1),LineaC(1),LineaB(1)];
+LP1y=[LineaB(2),LineaC(2),LineaC(2),LineaB(2)];
+LP1z=[LineaB(3),LineaC(3),LineaC(3)+.5,LineaB(3)+.5];
+patch(LP1x,LP1y,LP1z,'y');
+
+LP1x=[LineaC(1),LineaD(1),LineaD(1),LineaC(1)];
+LP1y=[LineaC(2),LineaD(2),LineaD(2),LineaC(2)];
+LP1z=[LineaC(3),LineaD(3),LineaD(3)+.5,LineaC(3)+.5];
+patch(LP1x,LP1y,LP1z,'y');
+
+LP1x=[LineaD(1),LineaA(1),LineaA(1),LineaD(1)];
+LP1y=[LineaD(2),LineaA(2),LineaA(2),LineaD(2)];
+LP1z=[LineaD(3),LineaA(3),LineaA(3)+.5,LineaD(3)+.5];
+patch(LP1x,LP1y,LP1z,'y');
+
+LineaA=[-25;11;0.01];
+LineaB=[-35;11;0.1];
+LineaC=[-35;10;0.1];
+LineaD=[-25;10;0.1];
+
+LineaX=[LineaA(1),LineaB(1),LineaC(1),LineaD(1)];
+LineaY=[LineaA(2),LineaB(2),LineaC(2),LineaD(2)];
+LineaZ=[LineaA(3),LineaB(3),LineaC(3),LineaD(3)];
+patch(LineaX,LineaY,LineaZ,'y');
+
+LineaX1=[LineaA(1),LineaB(1),LineaC(1),LineaD(1)];
+LineaY1=[LineaA(2),LineaB(2),LineaC(2),LineaD(2)];
+LineaZ1=[LineaA(3),LineaB(3),LineaC(3),LineaD(3)];
+patch(LineaX1,LineaY1,LineaZ1+0.5,'y');
+
+LP1x=[LineaA(1),LineaB(1),LineaB(1),LineaA(1)];
+LP1y=[LineaA(2),LineaB(2),LineaB(2),LineaA(2)];
+LP1z=[LineaA(3),LineaB(3),LineaB(3)+.5,LineaA(3)+.5];
+patch(LP1x,LP1y,LP1z,'y');
+
+LP1x=[LineaB(1),LineaC(1),LineaC(1),LineaB(1)];
+LP1y=[LineaB(2),LineaC(2),LineaC(2),LineaB(2)];
+LP1z=[LineaB(3),LineaC(3),LineaC(3)+.5,LineaB(3)+.5];
+patch(LP1x,LP1y,LP1z,'y');
+
+LP1x=[LineaC(1),LineaD(1),LineaD(1),LineaC(1)];
+LP1y=[LineaC(2),LineaD(2),LineaD(2),LineaC(2)];
+LP1z=[LineaC(3),LineaD(3),LineaD(3)+.5,LineaC(3)+.5];
+patch(LP1x,LP1y,LP1z,'y');
+
+LP1x=[LineaD(1),LineaA(1),LineaA(1),LineaD(1)];
+LP1y=[LineaD(2),LineaA(2),LineaA(2),LineaD(2)];
+LP1z=[LineaD(3),LineaA(3),LineaA(3)+.5,LineaD(3)+.5];
+patch(LP1x,LP1y,LP1z,'y');
+
+LineaA=[-49;11;0.01];
+LineaB=[-40;11;0.1];
+LineaC=[-40;10;0.1];
+LineaD=[-49;10;0.1];
+
+LineaX=[LineaA(1),LineaB(1),LineaC(1),LineaD(1)];
+LineaY=[LineaA(2),LineaB(2),LineaC(2),LineaD(2)];
+LineaZ=[LineaA(3),LineaB(3),LineaC(3),LineaD(3)];
+patch(LineaX,LineaY,LineaZ,'y');
+
+LineaX1=[LineaA(1),LineaB(1),LineaC(1),LineaD(1)];
+LineaY1=[LineaA(2),LineaB(2),LineaC(2),LineaD(2)];
+LineaZ1=[LineaA(3),LineaB(3),LineaC(3),LineaD(3)];
+patch(LineaX1,LineaY1,LineaZ1+0.5,'y');
+
+LP1x=[LineaA(1),LineaB(1),LineaB(1),LineaA(1)];
+LP1y=[LineaA(2),LineaB(2),LineaB(2),LineaA(2)];
+LP1z=[LineaA(3),LineaB(3),LineaB(3)+.5,LineaA(3)+.5];
+patch(LP1x,LP1y,LP1z,'y');
+
+LP1x=[LineaB(1),LineaC(1),LineaC(1),LineaB(1)];
+LP1y=[LineaB(2),LineaC(2),LineaC(2),LineaB(2)];
+LP1z=[LineaB(3),LineaC(3),LineaC(3)+.5,LineaB(3)+.5];
+patch(LP1x,LP1y,LP1z,'y');
+
+LP1x=[LineaC(1),LineaD(1),LineaD(1),LineaC(1)];
+LP1y=[LineaC(2),LineaD(2),LineaD(2),LineaC(2)];
+LP1z=[LineaC(3),LineaD(3),LineaD(3)+.5,LineaC(3)+.5];
+patch(LP1x,LP1y,LP1z,'y');
+
+LP1x=[LineaD(1),LineaA(1),LineaA(1),LineaD(1)];
+LP1y=[LineaD(2),LineaA(2),LineaA(2),LineaD(2)];
+LP1z=[LineaD(3),LineaA(3),LineaA(3)+.5,LineaD(3)+.5];
+patch(LP1x,LP1y,LP1z,'y');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%FARO??%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FaroA=[-41;2.5;0.1];
+FaroB=[-40;2.5;0.1];
+FaroC=[-40;1.5;0.1];
+FaroD=[-41;1.5;0.1];
+
+FaroX=[FaroA(1),FaroB(1),FaroC(1),FaroD(1)];
+FaroY=[FaroA(2),FaroB(2),FaroC(2),FaroD(2)];
+FaroZ=[FaroA(3),FaroB(3),FaroC(3),FaroD(3)];
+patch(FaroX,FaroY,FaroZ,[100/256 100/256 100/256]);
+
+FaroX1=[FaroA(1),FaroB(1),FaroC(1),FaroD(1)];
+FaroY1=[FaroA(2),FaroB(2),FaroC(2),FaroD(2)];
+FaroZ1=[FaroA(3),FaroB(3),FaroC(3),FaroD(3)];
+patch(FaroX1,FaroY1,FaroZ1+10,[100/256 100/256 100/256]);
+
+LP1x=[FaroA(1),FaroB(1),FaroB(1),FaroA(1)];
+LP1y=[FaroA(2),FaroB(2),FaroB(2),FaroA(2)];
+LP1z=[FaroA(3),FaroB(3),FaroB(3)+10,FaroA(3)+10];
+patch(LP1x,LP1y,LP1z,[100/256 100/256 100/256]);
+
+LP1x=[FaroB(1),FaroC(1),FaroC(1),FaroB(1)];
+LP1y=[FaroB(2),FaroC(2),FaroC(2),FaroB(2)];
+LP1z=[FaroB(3),FaroC(3),FaroC(3)+10,FaroB(3)+10];
+patch(LP1x,LP1y,LP1z,[100/256 100/256 100/256]);
+
+LP1x=[FaroC(1),FaroD(1),FaroD(1),FaroC(1)];
+LP1y=[FaroC(2),FaroD(2),FaroD(2),FaroC(2)];
+LP1z=[FaroC(3),FaroD(3),FaroD(3)+10,FaroC(3)+10];
+patch(LP1x,LP1y,LP1z,[100/256 100/256 100/256]);
+
+LP1x=[FaroD(1),FaroA(1),FaroA(1),FaroD(1)];
+LP1y=[FaroD(2),FaroA(2),FaroA(2),FaroD(2)];
+LP1z=[FaroD(3),FaroA(3),FaroA(3)+10,FaroD(3)+10];
+patch(LP1x,LP1y,LP1z,[100/256 100/256 100/256]);
+
+FaroA=[-41;8;10];
+FaroB=[-40;8;10];
+FaroC=[-40;1.5;10];
+FaroD=[-41;1.5;10];
+
+FaroX=[FaroA(1),FaroB(1),FaroC(1),FaroD(1)];
+FaroY=[FaroA(2),FaroB(2),FaroC(2),FaroD(2)];
+FaroZ=[FaroA(3),FaroB(3),FaroC(3),FaroD(3)];
+patch(FaroX,FaroY,FaroZ,[100/256 100/256 100/256]);
+
+FaroX1=[FaroA(1),FaroB(1),FaroC(1),FaroD(1)];
+FaroY1=[FaroA(2),FaroB(2),FaroC(2),FaroD(2)];
+FaroZ1=[FaroA(3),FaroB(3),FaroC(3),FaroD(3)];
+patch(FaroX1,FaroY1,FaroZ1+1,[100/256 100/256 100/256]);
+
+LP1x=[FaroA(1),FaroB(1),FaroB(1),FaroA(1)];
+LP1y=[FaroA(2),FaroB(2),FaroB(2),FaroA(2)];
+LP1z=[FaroA(3),FaroB(3),FaroB(3)+1,FaroA(3)+1];
+patch(LP1x,LP1y,LP1z,[100/256 100/256 100/256]);
+
+LP1x=[FaroB(1),FaroC(1),FaroC(1),FaroB(1)];
+LP1y=[FaroB(2),FaroC(2),FaroC(2),FaroB(2)];
+LP1z=[FaroB(3),FaroC(3),FaroC(3)+1,FaroB(3)+1];
+patch(LP1x,LP1y,LP1z,[100/256 100/256 100/256]);
+
+LP1x=[FaroC(1),FaroD(1),FaroD(1),FaroC(1)];
+LP1y=[FaroC(2),FaroD(2),FaroD(2),FaroC(2)];
+LP1z=[FaroC(3),FaroD(3),FaroD(3)+1,FaroC(3)+1];
+patch(LP1x,LP1y,LP1z,[100/256 100/256 100/256]);
+
+LP1x=[FaroD(1),FaroA(1),FaroA(1),FaroD(1)];
+LP1y=[FaroD(2),FaroA(2),FaroA(2),FaroD(2)];
+LP1z=[FaroD(3),FaroA(3),FaroA(3)+1,FaroD(3)+1];
+patch(LP1x,LP1y,LP1z,[100/256 100/256 100/256]);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 axis equal tight off vis3d;
 camlight;
-view(3);
+view(2);
